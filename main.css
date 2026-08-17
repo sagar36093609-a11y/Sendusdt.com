@@ -1,0 +1,417 @@
+﻿/* â”€â”€ Copied 1:1 from Qrtester + description/notice additions â”€â”€ */
+
+:root {
+	--page-width: 390px;
+	--text-main: #1a1f2f;
+	--text-muted: #7f8698;
+	--line: #d7dce8;
+	--line-soft: #eceff5;
+	--blue: #2f6bff;
+	--button-start: #2463f3;
+	--button-end: #7650ff;
+	--shadow: 0 16px 28px rgba(88, 97, 255, 0.24);
+	--toast-shadow: 0 16px 32px rgba(26, 31, 47, 0.14);
+	font-synthesis-weight: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	min-height: 100%;
+	background: #ffffff;
+	color: var(--text-main);
+	font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	overflow-x: hidden;
+}
+
+button,
+input {
+	font: inherit;
+}
+
+button {
+	appearance: none;
+	-webkit-appearance: none;
+}
+
+input {
+	appearance: none;
+	-webkit-appearance: none;
+}
+
+.screen {
+	width: min(100%, var(--page-width));
+	min-height: 100vh;
+	min-height: 100dvh;
+	padding: 18px 16px max(18px, env(safe-area-inset-bottom));
+	display: flex;
+	flex-direction: column;
+	background: #ffffff;
+}
+
+.form-shell {
+	padding-top: 2px;
+}
+
+.field-block + .field-block {
+	margin-top: 16px;
+}
+
+.field-label {
+	margin: 0 0 8px;
+	font-size: 13px;
+	line-height: 1.2;
+	font-weight: 600;
+	color: var(--text-muted);
+	letter-spacing: 0.01em;
+}
+
+/* â”€â”€ Address field â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+.address-field {
+	position: relative;
+	width: 100%;
+	background: #ffffff;
+	border: 1.6px solid var(--line);
+	border-radius: 14px;
+	box-shadow: 0 1px 1px rgba(17, 24, 39, 0.02);
+	overflow: hidden;
+	height: 62px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 0 12px 0 16px;
+}
+
+.address-input {
+	border: 0;
+	outline: 0;
+	background: transparent;
+	color: var(--text-main);
+	min-width: 0;
+	padding: 0;
+	width: 100%;
+	caret-color: var(--blue);
+	font-size: 15px;
+	font-weight: 600;
+	letter-spacing: 0.005em;
+	flex: 1 1 auto;
+}
+
+.address-input::placeholder {
+	color: #cfd5e3;
+}
+
+.addr-usdt-icon {
+	width: 26px;
+	height: 26px;
+	flex: 0 0 auto;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.addr-usdt-icon svg {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+/* â”€â”€ Network pill â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+.network-block {
+	margin-top: 20px;
+}
+
+.network-pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	height: 48px;
+	padding: 4px 14px 4px 4px;
+	border-radius: 999px;
+	border: 1.6px solid #dfe3eb;
+	background: #ffffff;
+	color: var(--text-main);
+	cursor: default;
+}
+
+.network-icon {
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	overflow: hidden;
+	flex: 0 0 auto;
+}
+
+.network-icon svg {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.network-name {
+	font-size: 15px;
+	font-weight: 700;
+	letter-spacing: -0.01em;
+}
+
+.network-caret {
+	font-size: 12px;
+	line-height: 1;
+	color: #9299ac;
+	transform: translateY(1px);
+}
+
+/* ── Description field (styled like amount field) ──────────────── */
+
+.desc-field {
+	width: 100%;
+	background: #ffffff;
+	border: 1.6px solid var(--line);
+	border-radius: 14px;
+	box-shadow: 0 1px 1px rgba(17, 24, 39, 0.02);
+	height: 62px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 0 12px 0 12px;
+}
+
+.desc-icon {
+	width: 32px;
+	height: 32px;
+	flex: 0 0 auto;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.desc-icon svg {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.desc-text {
+	flex: 1 1 auto;
+	font-size: 15px;
+	font-weight: 600;
+	color: var(--text-main);
+	letter-spacing: 0.005em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin: 0;
+	border: 0;
+	outline: 0;
+	background: transparent;
+	padding: 0;
+	min-width: 0;
+	caret-color: var(--blue);
+}
+
+.desc-actions {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	margin-left: auto;
+	padding-left: 8px;
+	white-space: nowrap;
+}
+
+.desc-token {
+	font-size: 15px;
+	font-weight: 700;
+	color: #636b80;
+	letter-spacing: 0.01em;
+}
+
+.desc-badge {
+	font-size: 15px;
+	font-weight: 700;
+	color: var(--blue);
+}
+
+/* â”€â”€ Notice banner â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+.notice-banner {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	background: #fffbf0;
+	border: 1.6px solid #f5d98a;
+	border-radius: 14px;
+	padding: 13px 14px;
+	margin-top: 16px;
+}
+
+.notice-icon {
+	flex-shrink: 0;
+	margin-top: 1px;
+}
+
+.notice-text {
+	font-size: 13.5px;
+	color: #5a4a1a;
+	line-height: 1.55;
+	margin: 0;
+}
+
+.notice-text strong {
+	color: var(--text-main);
+	font-weight: 700;
+}
+
+/* â”€â”€ Spacer & bottom bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+.page-spacer {
+	flex: 1 1 auto;
+	min-height: 40px;
+}
+
+.bottom-bar {
+	padding-top: 12px;
+	padding-bottom: max(10px, env(safe-area-inset-bottom));
+}
+
+/* â”€â”€ Primary button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+.primary-button {
+	width: 100%;
+	height: 54px;
+	border: 0;
+	border-radius: 14px;
+	background: linear-gradient(92deg, var(--button-start) 0%, var(--button-end) 100%);
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: 800;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	box-shadow: 0 6px 18px rgba(36, 99, 243, 0.38);
+	cursor: pointer;
+	-webkit-font-smoothing: antialiased;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+	transition: transform 140ms ease, box-shadow 140ms ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.primary-button:active {
+	transform: translateY(1px);
+}
+
+.primary-button:disabled {
+	opacity: 0.8;
+	cursor: default;
+	box-shadow: none;
+}
+
+/* â”€â”€ Button spinner â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+.btn-spinner {
+	width: 16px;
+	height: 16px;
+	border: 2.5px solid rgba(255, 255, 255, 0.35);
+	border-top-color: #ffffff;
+	border-radius: 50%;
+	animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+	to { transform: rotate(360deg); }
+}
+
+/* â”€â”€ Toast â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+.toast {
+	position: fixed;
+	left: 50%;
+	bottom: calc(96px + env(safe-area-inset-bottom));
+	transform: translateX(-50%);
+	width: calc(min(100vw, var(--page-width)) - 32px);
+	padding: 14px 16px;
+	border-radius: 16px;
+	font-size: 14px;
+	line-height: 1.4;
+	font-weight: 600;
+	box-shadow: var(--toast-shadow);
+	background: rgba(27, 35, 58, 0.92);
+	color: #ffffff;
+	z-index: 20;
+}
+
+.toast[data-type="success"] {
+	background: rgba(20, 118, 77, 0.94);
+}
+
+.toast[data-type="error"] {
+	background: rgba(164, 40, 40, 0.95);
+}
+
+@media (max-width: 360px) {
+	.screen {
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+
+	.address-input,
+	.network-name {
+		font-size: 14px;
+	}
+
+	.page-spacer {
+		min-height: 24px;
+	}
+
+	.primary-button {
+		height: 66px;
+		font-size: 17px;
+	}
+}
+
+/* -- Wallet auto-connect status ---------------------------------- */
+
+.wallet-status {
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	margin-top: 16px;
+	padding: 8px 14px;
+	background: #f0faf4;
+	border: 1.4px solid #b7e8c8;
+	border-radius: 10px;
+	width: fit-content;
+}
+
+.wallet-status-dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #34c759;
+	flex-shrink: 0;
+	box-shadow: 0 0 0 2px rgba(52,199,89,0.25);
+}
+
+.wallet-status-text {
+	font-size: 12.5px;
+	font-weight: 600;
+	color: #1a7a3c;
+}
